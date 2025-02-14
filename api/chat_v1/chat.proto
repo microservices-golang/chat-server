@@ -4,7 +4,9 @@ package chat;
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
+
 option go_package = "./chat";
+
 service ChatService {
   rpc CreateChat(CreateChatRequest) returns (CreateChatResponse);
   rpc DeleteChat(DeleteChatRequest) returns (google.protobuf.Empty);
@@ -12,7 +14,8 @@ service ChatService {
 }
 
 message CreateChatRequest {
-  repeated string usernames = 1;
+  string chat_name = 1;
+  repeated string user_emails = 2;
 }
 
 message CreateChatResponse {
